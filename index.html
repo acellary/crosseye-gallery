@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>wed3b</title>
+        <style>
+            body{
+                margin:0;
+                width:100%;
+                height:auto;
+            }
+            #view{
+                position:absolute;
+                width:100%;
+                height:100%;
+                margin:auto;
+
+            }
+            #left, #right{
+                margin:0;
+                padding:0;
+                width:50%;
+                height:100%;
+                -webkit-transition: background-image 1s ease-in-out;
+                transition: background-image 1s ease-in-out;
+            }
+            #left{
+                position:absolute;
+                left:0;
+                background-image: url("img/wedding-left-3.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+            #right{
+                position:absolute;
+                right:0;
+                background-image: url("img/wedding-right-3.jpg") ;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+        </style>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                setTimeout(randomPicture,5000);
+            });
+
+            function randomPicture() {
+                var rand = Math.floor(Math.random()*488)+1;
+                var imgPreloadLeft = new Image();
+                var imgPreloadRight = new Image();
+                $(imgPreloadLeft).attr({src: "img/wedding-left-"+rand+".jpg"});
+                $(imgPreloadRight).attr({src: "img/wedding-left-"+rand+".jpg"});
+
+                $(imgPreloadLeft).one("load", function(){
+                    $(imgPreloadRight).one("load", function() {
+                        $('#left').css('background-image', 'url("img/wedding-left-' + rand + '.jpg")');
+                        $('#right').css('background-image', 'url("img/wedding-right-' + rand + '.jpg")');
+                        setTimeout(randomPicture, 5000);
+                    });
+                });
+
+            }
+        </script>
+    </head>
+
+    <body>
+    <div id="view">
+        <div id="left">
+        </div>
+        <div id="right">
+        </div>
+    </div>
+    </body>
+</html>
