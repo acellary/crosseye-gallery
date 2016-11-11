@@ -16,8 +16,8 @@ function randomPicture() {
         $(imgPreloadRight).one("load", function() {
             $('#left').css('background-image', 'url("img/wedding-left-' + rand + '.jpg")');
             $('#right').css('background-image', 'url("img/wedding-right-' + rand + '.jpg")');
-            setTimeout(randomPicture, interval);
         });
     });
+    setTimeout(randomPicture, interval);
 
 }
