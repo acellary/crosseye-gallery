@@ -1,1 +1,8 @@
 img/*
+!img/.gitignore
+!img/wedding-left-1.jpg
+!img/wedding-left-2.jpg
+!img/wedding-left-3.jpg
+!img/wedding-right-1.jpg
+!img/wedding-right-2.jpg
+!img/wedding-right-3.jpg
